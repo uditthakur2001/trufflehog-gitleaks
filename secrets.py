@@ -12,6 +12,6 @@ secrets = {
   	"storage_account_name": "examplestorageaccount",
   	"storage_account_key": "Eby8vdM02xNOcqFlq1XN2v==YOUR_EXAMPLE_KEY==jaNjwGDW==EXAMPLEKEY=="
 	}
-
+    
 } 
  # type: ignore

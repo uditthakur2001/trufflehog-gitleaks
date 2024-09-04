@@ -7,3 +7,15 @@ repos:
         entry: bash -c 'trufflehog3 -p 1 --rules ../custom_config.json .'
         language: system
         stages: ["commit", "push"]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.16.1
+    hooks:
+      - id: gitleaks
+        name: Gitleaks
+        description: Scan for secrets using Gitleaks.
+        entry: gitleaks detect
+        language: system
+        files: \.(py|yaml|json|md|sh|js)$  # Scans files with these extensions
+        exclude: ^(vendor|node_modules)/  # Excludes specific directories
+

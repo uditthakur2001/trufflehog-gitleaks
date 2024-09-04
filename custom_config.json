@@ -1,0 +1,29 @@
+[
+    {
+        "id": "high-entropy",
+        "message": "High Entropy",
+        "severity": "MEDIUM",
+        "alphabet": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/",
+        "threshold": 4.5,
+        "minlen": 20
+    },
+    {
+        "id": "secret-key",
+        "message": "Potential Secret Key Detected",
+        "severity": "HIGH",
+        "alphabet": "'SECRET_KEY':'[a-zA-Z]+[a-zA-Z0-9]*"
+    },
+    {
+        "id": "database-user",
+        "message": "Potential Database User Detected",
+        "severity": "HIGH",
+        "alphabet": "'DATABASE_USER':\\s*'[^']{3,}'"
+    },
+    {
+        "id": "database-password",
+        "message": "Potential Database Password Detected",
+        "severity": "HIGH",
+        "alphabet": "'DATABASE_PASSWORD':\\s*'[^']{8,}'"
+    }
+]
+

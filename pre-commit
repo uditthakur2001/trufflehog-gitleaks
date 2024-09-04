@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Run gitleaks detection and output to JSON file
+
+##uncomment gitleaks detect..
+
+# gitleaks detect                     
+
+# gitleaks detect --report-format=json --report-path=report.json
+
+
+# Pre-commit hook setup
+
+##uncomment lower lines..
+
+INSTALL_PYTHON='C:\Users\uditr\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe'
+ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=pre-commit)
+
+HERE="$(cd "$(dirname "$0")" && pwd)"
+ARGS+=(--hook-dir "$HERE" -- "$@")
+
+if [ -x "$INSTALL_PYTHON" ]; then
+    exec "$INSTALL_PYTHON" -mpre_commit "${ARGS[@]}"
+elif command -v pre-commit > /dev/null; then
+    exec pre-commit "${ARGS[@]}"
+else
+    echo '`pre-commit` not found. Did you forget to activate your virtualenv?' 1>&2
+    exit 1
+fi
+
+
